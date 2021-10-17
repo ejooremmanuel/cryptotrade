@@ -1,0 +1,163 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #fafbfd;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Custom Fonts */
+@font-face {
+  font-family: Rubik;
+  src: url(/fonts/rubik.woff2);
+}
+/* Banner Styles */
+.container__heading {
+  font-family: Rubik;
+  font-size: 4rem !important;
+  font-weight: 900;
+  color: #fff !important;
+  bottom: 80px;
+}
+
+.banner-disp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-disp p {
+  color: #fafafa;
+  width: 60%;
+  margin: 7rem auto 0 auto;
+  top: 50px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.banner-button {
+  display: flex;
+  align-items: center;
+  background: #ead9b3;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #000;
+  margin-top: 8rem;
+}
+
+.button-navbar {
+  background: #ead9b3;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #000;
+  width: 10%;
+  text-align: center;
+}
+
+.button-navbar:hover {
+  text-decoration: none;
+  background: #fafafa;
+  color: #2a363b;
+}
+.banner-button:hover {
+  text-decoration: none;
+  background: #fafafa;
+  color: #2a363b;
+}
+
+/* Middle section */
+
+.why-icons {
+  font-size: 5rem;
+}
+
+.in-highlight {
+  position: relative;
+  background: 0 0;
+  z-index: 0;
+}
+
+.in-highlight::before {
+  content: "";
+  background: #ead9b3;
+  position: absolute;
+  left: 0;
+  right: -2px;
+  bottom: 2px;
+  height: 16px;
+  z-index: -1;
+}
+
+td {
+  text-align: left;
+  padding-left: 60px;
+}
+tr {
+  text-align: left;
+}
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.line {
+  border-left: 2px solid #ead9b3;
+  display: block;
+  height: 60px;
+  margin: 0 10px;
+}
+
+.steps-contents {
+  color: #69686d;
+}
+
+/* Footer Styles */
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .products {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+footer .support {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+footer .company {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.footer-credit {
+  vertical-align: middle;
+  background-color: #fff;
+  height: 70px;
+  width: 100%;
+  box-shadow: 1px 1px 2px 1px rgba(182, 177, 177, 0.6);
+}
+
+.footer-credit p {
+  margin: 20px auto;
+  align-self: center;
+  text-align: center;
+  font-weight: bold;
+}

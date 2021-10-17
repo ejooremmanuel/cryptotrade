@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta description="Trading with Power" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css"
+    />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit-icons.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Material Icon -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <!-- Start of Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="/">TWP</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul
+          class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll"
+          style="max-height: 100px"
+        >
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarScrollingDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Start Investing
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="/auth/login">Sign in</a></li>
+              <li>
+                <a class="dropdown-item" href="/auth/register"
+                  >Create an account</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <a type="submit" class="btn d-flex button-navbar" href="/auth/register">
+          Get Started
+        </a>
+      </div>
+    </nav>
+
+    <!-- End of Navbar -->
+
+    <div class="uk-cover-container uk-height-large">
+      <img src="/img/banner.jpg" alt="" uk-cover />
+      <div class="banner-disp uk-position-center">
+        <div class="uk-position-center mb-5">
+          <h1 class="uk-text-muted uk-text-lead container__heading">
+            Grow your income
+          </h1>
+        </div>
+        <div class="uk-position-center">
+          <p>
+            TWP platform affords you the opportunity to grow your income through
+            your investment.
+          </p>
+        </div>
+
+        <div class="uk-position-center mt-5">
+          <a type="submit" class="btn-lg banner-button" href="/auth/register">
+            Get Started<span class="material-icons"> arrow_forward </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose us -->
+    <div class="uk-section uk-section-muted">
+      <div class="uk-container">
+        <h3><span class="in-highlight"> Why choose us</span></h3>
+
+        <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+          <div>
+            <span class="material-icons why-icons"> support_agent </span>
+            <h5>Responsive support system</h5>
+            <p>
+              We are always ready to help you when you face any challenge while
+              using our platform. We are reachable through calls and messages.
+            </p>
+          </div>
+          <div>
+            <span class="material-icons why-icons"> hourglass_disabled </span>
+            <h5>No transaction delay</h5>
+            <p>
+              Our platform has optimized to perform optimally thus removing any
+              form of delay during transactions. The technology is modern.
+            </p>
+          </div>
+          <div>
+            <span class="material-icons why-icons"> speed </span>
+            <h5>Fast payout</h5>
+            <p>
+              Our payout system has been programmed to be as efficient and
+              effective as possible. You can count on us.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-child-width-1-2@s uk-grid-collapse uk-text-center" uk-grid>
+      <div>
+        <div class="uk-tile uk-tile">
+          <img src="/img/btc.jpg" alt="" />
+        </div>
+      </div>
+      <div class="uk-tile uk-tile-Secondary">
+        <h2
+          class=""
+          style="padding: 0 160px; text-align: left; font-size: 40px"
+        >
+          Get started in 3 easy steps
+        </h2>
+        <div>
+          <table>
+            <tr>
+              <td>
+                <h3 style="margin-top: 30px">01</h3>
+                <span class="line"></span>
+              </td>
+              <td>
+                <h3>Create an account</h3>
+                <h5 class="steps-contents">Sign up for free on our website</h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h3 style="margin-top: 30px">02</h3>
+                <span class="line"></span>
+              </td>
+              <td>
+                <h3>Make your deposit</h3>
+                <h5 class="steps-contents">Fund your account</h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h3 style="margin-top: 10px">03</h3>
+              </td>
+              <td>
+                <h3>Start earning</h3>
+                <h5 class="steps-contents">
+                  Your investment begins to yield return
+                </h5>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <footer class="">
+      <div class="footer-container uk-cover-container uk-height-medium">
+        <div class="products">
+          <h5>Products</h5>
+          <a>Buycoins</a>
+          <a>Sell Coins</a>
+        </div>
+        <div class="company">
+          <h5>Company</h5>
+          <a>About</a>
+          <a>instagram</a>
+        </div>
+        <div class="support">
+          <h5>Support</h5>
+          <a>Help Center</a>
+          <a>Send a message</a>
+        </div>
+      </div>
+      <div class="footer-credit">
+        <p>&COPY; tradeWithPower <%-year%></p>
+      </div>
+    </footer>
+  </body>
+</html>

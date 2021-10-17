@@ -1,0 +1,42 @@
+{
+  "name": "cryptotrade",
+  "version": "1.0.0",
+  "description": "A crypto trade platform",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejooremmanuel/cryptotrade.git"
+  },
+  "keywords": [
+    "EJS",
+    "node",
+    "crypto",
+    "api"
+  ],
+  "author": "Ejoor Emmanuel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ejooremmanuel/cryptotrade/issues"
+  },
+  "homepage": "https://github.com/ejooremmanuel/cryptotrade#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "moments": "^0.0.2",
+    "mongoose": "^6.0.11",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.7.0",
+    "passport": "^0.5.0",
+    "passport-local": "^1.0.0"
+  }
+}
