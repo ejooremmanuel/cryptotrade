@@ -8,23 +8,27 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const dotenv = require("dotenv").config();
+const helmet = require("helmet");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const flash = require("connect-flash");
 const LocalStrategy = require("passport-local").Strategy;
-app.use(flash());
+
 const authroutes = require("./routes/auth/auth.routes");
 const defaultroutes = require("./routes/default/default.routes");
+const userroutes = require("./routes/user/user.routes");
+
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(helmet());
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 //Connect Database
 mongoose
-  .connect("mongodb://localhost/cryptotrade")
+  .connect(process.env.DB)
   .then((connected) => {
     console.log("Database connection established");
   })
@@ -49,10 +53,13 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+app.use(globalVariables);
 
 app.use("/auth", authroutes);
 app.use("/", defaultroutes);
+app.use("/user", userroutes);
 
-app.use(globalVariables);
+const port = process.env.PORT || 7000;
 
-app.listen(7000, console.log("server listening on port 7000"));
+app.listen(port, console.log(`server listening on port ${port}`));

@@ -70,9 +70,18 @@ body {
 }
 
 /* Middle section */
-
+.why-icons-container {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
 .why-icons {
   font-size: 5rem;
+}
+.why-icons:hover {
+  color: #ead9b3;
+  cursor: pointer;
+  font-size: 5.5rem;
 }
 
 .in-highlight {
@@ -90,6 +99,40 @@ body {
   bottom: 2px;
   height: 16px;
   z-index: -1;
+}
+
+.container-btc-benefits {
+  display: flex;
+  align-items: center;
+}
+
+.btc-image {
+  flex: 1;
+  padding: 5px;
+}
+.btc-image img {
+  width: 90%;
+  object-fit: cover;
+}
+
+.benefits-text {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.benefits-items {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  justify-content: center;
+}
+
+.benefits-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 td {
@@ -160,4 +203,34 @@ footer .company {
   align-self: center;
   text-align: center;
   font-weight: bold;
+}
+
+/* Login Form */
+.login-form {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  height: 80vh;
+  background: #fff;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border-radius: 7px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 15px rgba(179, 179, 179, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  .login-form {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 900px) {
+  .login-form {
+    width: 40vw;
+  }
 }
