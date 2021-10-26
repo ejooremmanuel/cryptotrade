@@ -3,7 +3,7 @@ const sendEmail = require("../config/mailer");
 const welcomeEmail = async (req, username, email, secretToken) => {
   const html = `
 
-  Welcome to WAAWChat ${username}, we're excited to have you join us.
+  Welcome to TWP(Trade with Power) ${username}, we're excited to have you join us.
 
   <br/>
   <br/>
@@ -12,16 +12,16 @@ const welcomeEmail = async (req, username, email, secretToken) => {
   Alternatively, click the  ${req.headers.host}/user/confirm-account/${secretToken} to activate your account.
   <br/>
   <br/>
-  WAAWChat will give you the best experience ever😊😊
+  We will give you the best experience ever😊😊
 
   <br/>
   <br/>
   Cheers👏
   <br/>
-  <strong>WAAWCHAT Team</strong>
+  <strong>TWP</strong>
     `;
 
-  await sendEmail("support@waawchat.com", email, "Welcome to WAAWChat", html);
+  await sendEmail("support@TWP.com", email, "Verify your account", html);
 };
 
 module.exports = welcomeEmail;
