@@ -8,7 +8,6 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const dotenv = require("dotenv").config();
-const helmet = require("helmet");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const flash = require("connect-flash");
@@ -21,7 +20,6 @@ const userroutes = require("./routes/user/user.routes");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(helmet());
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));

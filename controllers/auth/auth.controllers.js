@@ -57,7 +57,7 @@ module.exports = {
   postLogin: passport.authenticate("local", {
     successFlash: true,
     successMessage: true,
-    successRedirect: "/",
+    successRedirect: "/user/dashboard",
     failureRedirect: "/auth/login",
     failureFlash: true,
     passReqToCallback: true,

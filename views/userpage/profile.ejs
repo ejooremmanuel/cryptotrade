@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <%- include("./navbar") %> <%- include("./sidebar") %>
+    <div class="dashboard__container">
+      <div class="welcome">
+        <h3 class="welcome__greeting">Good afternoon Emmanuel</h3>
+        <span>Keep your account safe!</span>
+      </div>
+      <div class="balance">
+        <h3>$0</h3>
+        <span>Balance</span>
+      </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

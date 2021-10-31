@@ -230,9 +230,94 @@ footer .company {
   box-shadow: 0 10px 15px rgba(179, 179, 179, 0.7);
 }
 
+/* User Dashboard */
+.user-container {
+  display: flex;
+}
+
+/* Navbar */
+.dashboard__container {
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.userinfo {
+  box-shadow: 0 2px 15px rgba(179, 179, 179, 0.7);
+  background: #fff;
+  height: 50vh;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.user-navbar {
+  width: 100%;
+  min-height: 50px;
+  box-shadow: 0 2px 15px rgba(179, 179, 179, 0.7);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 4px;
+  border-radius: 5px;
+}
+.user-navbar span {
+  cursor: pointer;
+}
+
+.usericon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.usericon .material-icons {
+  cursor: pointer;
+}
+
+/* End of user navbar */
+
+/* Start of sidebar */
+.user-sidebar {
+  width: 20%;
+  padding: 4px;
+  background: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sidebarall {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.logobrand {
+  margin: 20px 0;
+}
+.sidebarall a {
+  cursor: pointer;
+  color: #625f6e;
+  font-size: 15px;
+  line-height: 22px;
+}
+.sidebarall a:hover {
+  color: #3c3b3f;
+  text-decoration: none;
+}
+.closeme {
+  display: none;
+}
+
+/* Media Queries */
 @media screen and (max-width: 500px) {
   .login-form {
-    width: 90vw;
+    width: 90vw !important;
   }
 }
 @media screen and (max-width: 768px) {
@@ -253,7 +338,7 @@ footer .company {
   }
 
   .login-form {
-    max-width: 90vw;
+    max-width: 90vw !important;
   }
   .container-btc-benefits {
     flex-direction: column;
@@ -272,5 +357,21 @@ footer .company {
 @media screen and (max-width: 900px) {
   .login-form {
     width: 40vw;
+  }
+  .user-sidebar {
+    display: none;
+  }
+  .user-sidebar-show {
+    display: flex;
+    position: absolute;
+    z-index: 999;
+    width: 200px;
+  }
+  .closeme {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .closethebar {
+    display: none;
   }
 }

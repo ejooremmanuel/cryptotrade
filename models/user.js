@@ -20,6 +20,10 @@ const userSchema = new Schema(
     avatar: {
       type: "string",
     },
+    balance: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
