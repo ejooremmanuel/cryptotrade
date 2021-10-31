@@ -36,7 +36,7 @@ mongoose
 app.use(cookieParser());
 app.use(
   session({
-    secret: process.env.SECRET,
+    secret: "secret",
     resave: true,
     saveUninitialized: true,
     cookie: { maxAge: Date.now() + 360000 * 24 * 60 * 60 },
