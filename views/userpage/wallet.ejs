@@ -5,18 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Dashboard</title>
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <!-- Material Icon -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
-  <body>
-    <%- include("./navbar") %> <%- include("./sidebar") %>
-    <div class="dashboard__container">
-      <div class="welcome">
-        <h3 class="welcome__greeting">Good afternoon Emmanuel</h3>
-        <span>Keep your account safe!</span>
-      </div>
-      <div class="balance">
-        <h3>$0</h3>
-        <span>Balance</span>
+  <body style="background-color: #f8f8f8">
+    <div class="user-container">
+      <div class="user-sidebar" id="sidebar"><%- include("./sidebar") %></div>
+      <div class="dashboard__container">
+        <%- include("./navbar") %>
+        <div class="userinfo">
+          <div class="welcome-dashboard">
+            <h4 class="welcome__greeting">Hi 🎉 <%-fullname%>!</h4>
+            <span>Keep your account safe!</span>
+          </div>
+          <div class="balance">
+            <h3>$<%-balance%></h3>
+            <span>Balance</span>
+          </div>
+          <a href="" class="btn btn-success">Deposit</a>
+          <a href="" class="btn btn-danger">Withdraw</a>
+        </div>
       </div>
     </div>
 

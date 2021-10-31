@@ -4,7 +4,15 @@ module.exports = {
   Dashboard: async (req, res) => {
     const foundUser = await User.findById(req.user._id);
     const { balance, fullname } = foundUser;
-    console.log(balance);
-    res.render("userpage/dashboard", { balance, fullname });
+    const getName = fullname.split(" ")[0];
+
+    res.render("userpage/dashboard", { balance, fullname: getName });
+  },
+  Wallet: async (req, res) => {
+    const foundUser = await User.findById(req.user._id);
+    const { balance, fullname } = foundUser;
+    const getName = fullname.split(" ")[0];
+
+    res.render("userpage/wallet", { balance, fullname: getName });
   },
 };
