@@ -41,7 +41,7 @@ app.use(
     saveUninitialized: true,
     cookie: { maxAge: Date.now() + 360000 * 24 * 60 * 60 },
     store: MongoStore.create({
-      mongoUrl: "mongodb://localhost/cryptotrade",
+      mongoUrl: process.env.DB,
       ttl: 14 * 24 * 60,
     }),
   })
