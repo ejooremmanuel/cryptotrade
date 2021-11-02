@@ -6,7 +6,8 @@ const {
 } = require("../../controllers/user/user.controllers");
 router.get("/dashboard", isLoggedIn, Dashboard);
 router.get("/wallet", isLoggedIn, Wallet);
-router.get("/dashboard?", (req, res) => {
-  console.log(req.query);
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
 });
 module.exports = router;

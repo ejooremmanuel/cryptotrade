@@ -5,8 +5,8 @@ const { createTransport } = require("nodemailer");
 const transport = createTransport({
   service: "Gmail",
   auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASSWORD,
+    user: process.env.user,
+    pass: process.env.pass,
   },
   tls: {
     rejectUnauthorized: false,

@@ -7,9 +7,9 @@ const welcomeEmail = async (req, username, email, secretToken) => {
 
   <br/>
   <br/>
-  Copy the the activation code ${secretToken} below.
+  Copy the the activation code <strong>${secretToken}</strong>.
 
-  Alternatively, click the  ${req.headers.host}/user/confirm-account/${secretToken} to activate your account.
+  Alternatively, click the  https://${req.headers.host}/auth/verify/${secretToken} to activate your account.
   <br/>
   <br/>
   We will give you the best experience ever😊😊

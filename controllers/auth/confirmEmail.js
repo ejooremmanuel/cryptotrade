@@ -1,18 +1,23 @@
-const { User } = require("../../models/User");
-
+const User = require("../../models/User");
 const confirmUser = async (req, res) => {
   const { secretToken } = req.body;
-  if (!secretToken)
-    return res.status(400).json({ message: "Please enter a token." });
+  if (!secretToken) {
+    req.flash(
+      "error-message",
+      "Please enter the secret token sent to your email."
+    );
+    return res.redirect("back");
+  }
 
   const userWithToken = await User.findOne({ secretToken });
-  if (!userWithToken)
-    return res.status(404).json({ message: "Invalid token!" });
-
-  userWithToken.confirmed = true;
+  if (!userWithToken) {
+    req.flash("error-message", "Please provide a valid token");
+    return res.redirect("back");
+  }
+  userWithToken.verified = true;
   await userWithToken.save();
-
-  return res.status(200).json({ message: "Email verified successfully." });
+  req.flash("success-message", "Email verified!");
+  return res.redirect("/auth/login");
 };
 
 module.exports = confirmUser;

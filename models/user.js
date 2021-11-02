@@ -20,6 +20,9 @@ const userSchema = new Schema(
     avatar: {
       type: "string",
     },
+    secretToken: {
+      type: "string",
+    },
     balance: {
       type: Number,
       default: 0,

@@ -1,5 +1,6 @@
 const User = require("../../models/user");
 const bcryptjs = require("bcryptjs");
+const welcomeEmail = require("../../utils/welcomeEmail");
 
 const { Strategy } = require("passport-local");
 const passport = require("passport");
@@ -9,6 +10,14 @@ passport.use(
     { usernameField: "email", passReqToCallback: true },
     async (req, email, password, done) => {
       User.findOne({ email }, (err, user) => {
+        if (!user.verified) {
+          return done(
+            null,
+            false,
+            req.flash("error-message", "Please verify your email address.")
+          );
+        }
+
         if (!user) {
           return done(
             null,
@@ -92,26 +101,67 @@ module.exports = {
         }
 
         const hashedPassword = bcryptjs.hashSync(password, 10);
-
+        const secretToken = hashedPassword;
         const newUser = new User({
           fullname,
           email,
           password: hashedPassword,
+          secretToken,
           avatar: `${fullname.substring(0, 2).toUpperCase()}`,
         });
 
         newUser.save();
-
+        welcomeEmail(req, newUser.fullname, newUser.email, newUser.secretToken);
         req.flash(
           "success-message",
-          "Registration Successful! You can now log in."
+          "Registration Successful! Please verify your email address."
         );
-        return res.redirect("/auth/login");
+        return res.redirect("/auth/verify");
       });
     } catch {
       ({ message }) => {
         res.json({ message });
       };
     }
+  },
+  confirmUser: async (req, res) => {
+    const { secretToken } = req.body;
+    if (!secretToken) {
+      req.flash(
+        "error-message",
+        "Please enter the secret token sent to your email."
+      );
+      return res.redirect("back");
+    }
+
+    const userWithToken = await User.findOne({ secretToken });
+    if (!userWithToken) {
+      req.flash("error-message", "Please provide a valid token");
+      return res.redirect("back");
+    }
+    userWithToken.verified = true;
+    await userWithToken.save();
+    req.flash("success-message", "Email successfully verified!");
+    return res.redirect("/auth/login");
+  },
+  confirmUserfromlink: async (req, res) => {
+    const { token } = req.params;
+    if (!token) {
+      req.flash(
+        "error-message",
+        "Please enter the secret token sent to your email."
+      );
+      return res.redirect("back");
+    }
+
+    const userWithToken = await User.findOne({ secretToken: token });
+    if (!userWithToken) {
+      req.flash("error-message", "Please provide a valid token");
+      return res.redirect("back");
+    }
+    userWithToken.verified = true;
+    await userWithToken.save();
+    req.flash("success-message", "Email verified!");
+    return res.redirect("/auth/login");
   },
 };
