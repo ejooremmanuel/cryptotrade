@@ -10,14 +10,6 @@ passport.use(
     { usernameField: "email", passReqToCallback: true },
     async (req, email, password, done) => {
       User.findOne({ email }, (err, user) => {
-        if (!user.verified) {
-          return done(
-            null,
-            false,
-            req.flash("error-message", "Please verify your email address.")
-          );
-        }
-
         if (!user) {
           return done(
             null,
