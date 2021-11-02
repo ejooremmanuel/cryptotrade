@@ -227,20 +227,19 @@ footer .company {
   width: 30vw;
   display: flex;
   flex-direction: column;
-  top: 50px;
   gap: 1em;
-  height: 80vh;
+  height: 70vh;
   background: #fff;
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-
   top: 50%;
   left: 50%;
   position: absolute;
   border-radius: 7px;
   transform: translate(-50%, -50%);
   box-shadow: 0 10px 15px rgba(179, 179, 179, 0.7);
+  z-index: -1;
 }
 
 /* User Dashboard */
@@ -351,7 +350,7 @@ footer .company {
   }
 
   .login-form {
-    max-width: 90vw !important;
+    width: 90vw !important;
   }
   .container-btc-benefits {
     flex-direction: column;
