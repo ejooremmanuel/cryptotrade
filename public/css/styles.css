@@ -215,6 +215,7 @@ footer .company {
   width: 30vw;
   display: flex;
   flex-direction: column;
+  top: 50px;
   gap: 1em;
   height: 80vh;
   background: #fff;
@@ -373,5 +374,8 @@ footer .company {
   }
   .closethebar {
     display: none;
+  }
+  .dashboard__container {
+    padding: 20px 0px;
   }
 }
