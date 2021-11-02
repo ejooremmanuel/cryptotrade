@@ -108,7 +108,7 @@ module.exports = {
           "success-message",
           "Registration Successful! Please verify your email address."
         );
-        return res.redirect("/auth/verify");
+        return res.redirect("/auth/login");
       });
     } catch {
       ({ message }) => {
