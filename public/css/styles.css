@@ -78,6 +78,9 @@ body {
 .why-icons {
   font-size: 5rem;
 }
+.why-icons p {
+  line-height: 20px;
+}
 .why-icons:hover {
   color: #ead9b3;
   cursor: pointer;
@@ -118,6 +121,7 @@ body {
 .benefits_heading {
   text-align: center;
   padding: 0 100px;
+  font-size: 25px;
 }
 
 .benefits-text {
@@ -126,7 +130,15 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-
+.benefits-text h3 {
+  font-size: 18px;
+}
+.benefits-text h5 {
+  font-size: 15px;
+}
+.logobrand {
+  cursor: pointer;
+}
 .benefits-items {
   display: flex;
   align-items: center;
