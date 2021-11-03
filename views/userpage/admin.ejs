@@ -21,25 +21,20 @@
   </head>
   <body style="background-color: #f8f8f8">
     <div class="user-container">
-      <div class="user-sidebar" id="sidebar"><%- include("./sidebar") %></div>
       <div class="dashboard__container">
-        <%- include("./navbar") %>
         <div class="userinfo">
           <div class="welcome-dashboard">
-            <h4 class="welcome__greeting">Hi 🎉 <%-fullname%>!</h4>
-            <span>Keep your account safe!</span>
+            <h4 class="welcome__greeting">Hi 🎉 admin!</h4>
           </div>
-          <div class="balance">
-            <h3>$<%-balance%></h3>
-            <span>Balance</span>
-          </div>
-          <a href="/deposit" target="_blank" class="btn btn-success"
-            >Start Investing</a
+          <a
+            href="https://commerce.coinbase.com/dashboard"
+            target="_blank"
+            class="btn btn-success"
+            >See all transactions</a
           >
         </div>
       </div>
     </div>
-
     <script src="/js/script.js"></script>
   </body>
 </html>

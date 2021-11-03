@@ -1,14 +1,18 @@
 const axios = require("axios");
 const dotenv = require("dotenv").config();
+const User = require("../../models/user");
 
-const Deposit = async (req, res) => {
+const newDeposit = async (req, res) => {
   if (!req.user) {
     res.redirect("/user/login");
   }
+
+  const { amount } = req.params;
+
   let data = JSON.stringify({
     name: "Deposit for TWP",
     local_price: {
-      amount: "500.00",
+      amount: amount,
       currency: "USD",
     },
     pricing_type: "fixed_price",
@@ -29,12 +33,27 @@ const Deposit = async (req, res) => {
   };
 
   axios(config)
-    .then((response) => {
-      res.redirect(response.data.data.hosted_url);
+    .then(async (response) => {
+      User.findByIdAndUpdate(
+        req.user._id,
+        [
+          {
+            $set: {
+              status: response.data.data.timeline[0].status,
+              payments: response.data.data.payments,
+            },
+          },
+        ],
+        (err, doc) => {
+          if (!err) {
+            res.redirect(response.data.data.hosted_url);
+          }
+        }
+      );
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-module.exports = Deposit;
+module.exports = newDeposit;

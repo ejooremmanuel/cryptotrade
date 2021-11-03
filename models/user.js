@@ -13,6 +13,10 @@ const userSchema = new Schema(
     email: {
       type: "string",
     },
+    admin: {
+      type: Boolean,
+      default: false,
+    },
     verified: {
       type: "boolean",
       default: false,
@@ -23,6 +27,8 @@ const userSchema = new Schema(
     secretToken: {
       type: "string",
     },
+    payments: [],
+    status: [],
     balance: {
       type: Number,
       default: 0,
