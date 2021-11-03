@@ -2,13 +2,14 @@ const axios = require("axios");
 const dotenv = require("dotenv").config();
 
 const Deposit = async (req, res) => {
+  const { amount } = req.body;
   if (!req.user) {
     res.redirect("/user/login");
   }
   let data = JSON.stringify({
     name: "Deposit for TWP",
     local_price: {
-      amount: "500.00",
+      amount,
       currency: "USD",
     },
     pricing_type: "fixed_price",

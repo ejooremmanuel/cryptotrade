@@ -25,4 +25,14 @@ module.exports = {
   getAdminPage: (req, res) => {
     res.render("userpage/admin");
   },
+  getDepositPage: async (req, res) => {
+    const foundUser = await User.findById(req.user._id);
+    const { email, fullname } = foundUser;
+    res.render("userpage/payment", { email, fullname });
+  },
+  getWithdrawPage: async (req, res) => {
+    const foundUser = await User.findById(req.user._id);
+    const { email, fullname } = foundUser;
+    res.render("userpage/withdraw", { email, fullname });
+  },
 };

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta description="Trading with Power" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>Deposit Page</title>
 
     <link
       rel="stylesheet"
@@ -21,97 +21,51 @@
     />
     <!-- Custom styles -->
     <link rel="stylesheet" href="/css/styles.css" />
-
-    <style>
-      body {
-        overflow: hidden;
-      }
-    </style>
   </head>
   <body>
-    <!-- Start of Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">TWP</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul
-          class="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll"
-          style="max-height: 100px"
-        >
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about">About Us</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarScrollingDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Start Investing
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="/auth/login">Sign in</a></li>
-              <li>
-                <a class="dropdown-item" href="/auth/register"
-                  >Create an account</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- End of Navbar -->
     <!-- Form -->
     <div class="container login-form mt-2">
-      <h5>Hi! Please Login to continue 😃</h5>
-
+      <h5>Specify the amount you'd like to Deposit 😃</h5>
       <%- include("../messages") %>
-      <form action="/auth/login" class="w-100" method="post">
+      <form action="/deposit" class="w-100" method="post">
         <div class="form-group">
-          <label for="email">Email address</label>
+          <label for="email">Registered Email address</label>
           <input
             type="email"
             class="form-control"
             name="email"
+            value="<%-email%>"
             id="email"
-            placeholder="name@gmail.com"
+            placeholder="Registered Email Address"
             required
           />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="email">Registered Full Name</label>
           <input
-            type="password"
+            type="text"
+            class="form-control"
+            name="fulname"
+            value="<%-fullname%>"
+            placeholder="Registered Full Name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Specify Amount in figures</label>
+          <input
+            type="number"
             class="form-control"
             id="password"
-            name="password"
-            placeholder="6+ characters"
+            name="amount"
+            placeholder="Amount to deposit"
             required
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">Pay Now</button>
+        <button type="submit" class="btn btn-primary">Deposit Now</button>
       </form>
     </div>
-
-    <!-- End of Navbar -->
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
