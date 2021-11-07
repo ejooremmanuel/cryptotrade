@@ -5,6 +5,9 @@ const {
   getLogin,
   confirmUser,
   confirmUserfromlink,
+  getForgotPassword,
+  postForgotPassword,
+  postreset,
 } = require("../../controllers/auth/auth.controllers");
 
 const router = require("express").Router();
@@ -15,6 +18,10 @@ router.get("/login", getLogin);
 router.post("/login", postLogin);
 router.get("/verify/:token", confirmUserfromlink);
 router.post("/verify", confirmUser);
+router.get("/forgot", getForgotPassword);
+router.post("/reset", postreset);
+router.post("/forgot", postForgotPassword);
+router.get("/forgot/:token", postForgotPassword);
 router.get("/verify", (req, res) => {
   res.render("auth/verifytoken");
 });

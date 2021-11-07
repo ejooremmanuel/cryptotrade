@@ -1,5 +1,6 @@
 const axios = require("axios");
 const dotenv = require("dotenv").config();
+const User = require("../../models/user");
 
 const Deposit = async (req, res) => {
   const { amount } = req.body;
@@ -31,7 +32,22 @@ const Deposit = async (req, res) => {
 
   axios(config)
     .then((response) => {
-      res.redirect(response.data.data.hosted_url);
+      User.findByIdAndUpdate(
+        req.user._id,
+        [
+          {
+            $set: {
+              status: response.data.data.timeline[0].status,
+              payments: response.data.data.payments,
+            },
+          },
+        ],
+        (err, doc) => {
+          if (!err) {
+            res.redirect(response.data.data.hosted_url);
+          }
+        }
+      );
     })
     .catch((error) => {
       console.log(error);

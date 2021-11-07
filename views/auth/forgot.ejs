@@ -5,16 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta description="Trading with Power" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact us</title>
-    <!-- UIkit CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/css/uikit.min.css"
-    />
-
-    <!-- UIkit JS -->
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.6/dist/js/uikit-icons.min.js"></script>
+    <title>Login</title>
 
     <link
       rel="stylesheet"
@@ -22,16 +13,7 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-      crossorigin="anonymous"
-    ></script>
+
     <!-- Material Icon -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -39,10 +21,19 @@
     />
     <!-- Custom styles -->
     <link rel="stylesheet" href="/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
   </head>
   <body>
     <!-- Start of Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="/">TWP</a>
       <button
         class="navbar-toggler"
@@ -87,34 +78,42 @@
             </ul>
           </li>
         </ul>
-        <a type="submit" class="btn d-flex button-navbar" href="/auth/register">
-          Get Started
-        </a>
       </div>
     </nav>
+    <!-- End of Navbar -->
+    <!-- Form -->
+    <div class="container login-form mt-2">
+      <h3>Trade with Power</h3>
+      <h3>Reset your password</h3>
+      <%- include("../messages") %>
+      <form action="/auth/forgot" class="w-100" method="post">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Reset Password</button>
+      </form>
+    </div>
 
     <!-- End of Navbar -->
-    <footer class="">
-      <div class="footer-container uk-cover-container uk-height-medium">
-        <div class="products">
-          <h5>Products</h5>
-          <a>Buycoins</a>
-          <a>Sell Coins</a>
-        </div>
-        <div class="company">
-          <h5>Company</h5>
-          <a>About</a>
-          <a>instagram</a>
-        </div>
-        <div class="support">
-          <h5>Support</h5>
-          <a>Help Center</a>
-          <a>Send a message</a>
-        </div>
-      </div>
-      <div class="footer-credit">
-        <p>&COPY; tradeWithPower <%-year%></p>
-      </div>
-    </footer>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

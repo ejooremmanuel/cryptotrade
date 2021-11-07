@@ -156,4 +156,57 @@ module.exports = {
     req.flash("success-message", "Email verified!");
     return res.redirect("/auth/login");
   },
+  getForgotPassword: async (req, res) => {
+    res.render("auth/forgot");
+  },
+  postreset: async (req, res) => {
+    const { password, confirmpassword, email } = req.body;
+    if (!confirmpassword || !password) {
+      req.flash("error-message", "All fields are required!");
+      return res.redirect("back");
+    }
+    if (password.length < 6) {
+      req.flash("error-message", "Password must be at least 6 characters.");
+      return res.redirect("back");
+    }
+    if (confirmpassword !== password) {
+      req.flash("error-message", "Passwords must match!");
+      return res.redirect("back");
+    }
+    let foundEmailforReset = await User.findOne({ email });
+    console.log(foundEmailforReset);
+    if (!foundEmailforReset) {
+      req.flash(
+        "error-message",
+        "This user does not exist. Please check the email and try again."
+      );
+      return res.redirect("back");
+    }
+    let hashedPassword = bcryptjs.hashSync(password, 10);
+    foundEmailforReset.password = hashedPassword;
+    await foundEmailforReset.save();
+    req.flash(
+      "success-message",
+      "Password changed successfully. Please log in."
+    );
+    return res.redirect("/auth/login");
+  },
+  postForgotPassword: async (req, res) => {
+    if (req.body) {
+      const { email } = req.body;
+      if (!email) {
+        req.flash("error-message", "Email field is required!.");
+        return res.redirect("back");
+      }
+      let foundEmail = await User.findOne({ email });
+      if (!foundEmail) {
+        req.flash(
+          "error-message",
+          "This user does not exist. Please check the email and try again."
+        );
+        return res.redirect("back");
+      }
+      return res.render("auth/reset", { email });
+    }
+  },
 };

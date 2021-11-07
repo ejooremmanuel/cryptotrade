@@ -5,7 +5,7 @@
 
 body {
   background: #fafbfd;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
 }
 
 /* Custom Fonts */
@@ -384,6 +384,13 @@ footer .company {
     width: 100%;
     margin: 10px 0;
   }
+  .banner-disp p {
+    position: relative;
+    top: -100px;
+  }
+  .banner-button {
+    margin-top: 0;
+  }
 }
 @media screen and (max-width: 768px) {
   .packages {
@@ -459,4 +466,73 @@ footer .company {
     width: 100%;
     margin: 10px 0;
   }
+}
+
+/* About us page */
+
+.carousel {
+  background: #eee;
+}
+
+.carousel img {
+  display: block;
+  height: 200px;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel img {
+    height: 400px;
+  }
+}
+
+/* Error 404 Page */
+.error404-container {
+  width: 95vw;
+  text-align: center;
+  height: 95vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
+}
+
+.error404-text {
+  align-self: center;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 60%;
+  gap: 1em;
+}
+.error404-text h1 {
+  font-size: 60px;
+}
+.error404-text p {
+  font-size: 18px;
+  color: #69686d;
+}
+
+.error404-back {
+  display: flex;
+  align-items: center;
+  color: rgb(177, 177, 29);
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.error404-footer {
+  display: flex;
+  gap: 2em;
+  color: #69686d;
+}
+.error404-footer a {
+  text-decoration: none;
+  color: #69686d;
+  font-size: 18px;
 }

@@ -56,6 +56,11 @@ app.use("/auth", authroutes);
 app.use("/", defaultroutes);
 app.use("/user", userroutes);
 
+app.use(function (req, res, next) {
+  res.render("error404");
+  next();
+});
+
 const port = process.env.PORT || 7000;
 
 app.listen(port, console.log(`server listening on port ${port}`));
