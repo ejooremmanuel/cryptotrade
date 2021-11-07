@@ -1,7 +1,15 @@
 const Withdraw = require("../../models/WIthdraw");
+const User = require("../../models/user");
 
 const Withdrawfunds = async (req, res) => {
   const { fullname, email, amount, phone } = req.body;
+
+  let checkbalance = await User.findOne({ email: email });
+
+  if (amount > checkbalance.balance) {
+    req.flash("error-message", "Insufficient balance");
+    return res.redirect("back");
+  }
 
   const newWithdrawRequest = await new Withdraw({
     fullname,
