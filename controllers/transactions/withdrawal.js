@@ -7,7 +7,10 @@ const Withdrawfunds = async (req, res) => {
   let checkbalance = await User.findOne({ email: email });
 
   if (amount > checkbalance.balance) {
-    req.flash("error-message", "Insufficient balance");
+    req.flash(
+      "error-message",
+      "Insufficient balance! Please make a deposit and try again."
+    );
     return res.redirect("back");
   }
 
