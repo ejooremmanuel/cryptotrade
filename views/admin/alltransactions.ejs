@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Transactions</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">All Transaction Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for(let item of data) {%>
+        <td>
+          Payment initiated by
+          <br /><strong
+            ><%-item.metadata.customer_name%><br /><%-item.metadata.customer_id%></strong
+          >
+        </td>
+
+        <%for(let list of item.timeline) {%>
+        <tr>
+          <td>
+            <strong>Status of transaction <br /><%-list.status%></strong>
+            <br />
+            Time of transaction <br /><%-list.time%>
+          </td>
+        </tr>
+        <%}%>
+        <!--  -->
+        <%for(let list of item.payments) {%>
+        <tr>
+          <td>Date of payment <br /><%-list.detected_at%></td>
+        </tr>
+        <tr>
+          <td style="color: green; font-weight: 500">
+            Payment status<br />
+            <%-list.status%>
+          </td>
+        </tr>
+        <tr>
+          <td>Amount deposited <br /><%-list.value.local.amount%></td>
+        </tr>
+
+        <%}%>
+
+        <!--  -->
+        <%}%>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { isLoggedIn } = require("../../config/authorization");
 const { isAdmin } = require("../../config/admin");
+const { Alltransaction } = require("../../controllers/admin/admin");
 const {
   Dashboard,
   Wallet,
@@ -15,6 +16,7 @@ router.get("/packages", isLoggedIn, Packages);
 router.get("/deposit", isLoggedIn, getDepositPage);
 router.get("/withdraw", isLoggedIn, getWithdrawPage);
 router.get("/admin", isAdmin, getAdminPage);
+router.get("/alltransactions", isAdmin, Alltransaction);
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
