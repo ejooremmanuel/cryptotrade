@@ -544,4 +544,10 @@ footer .company {
   .error404-text h1 {
     font-size: 30px;
   }
+  .error404-container {
+    width: 95vw;
+    text-align: center;
+    height: 100vh;
+    justify-content: space-evenly;
+  }
 }
