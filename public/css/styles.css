@@ -536,3 +536,12 @@ footer .company {
   color: #69686d;
   font-size: 18px;
 }
+
+@media screen and (max-width: 768px) {
+  .error404-text {
+    margin-top: 40px;
+  }
+  .error404-text h1 {
+    font-size: 30px;
+  }
+}
