@@ -382,6 +382,12 @@ footer .company {
   .login-form {
     width: 90vw !important;
   }
+  .regform {
+    height: 100vh;
+  }
+  .regform img {
+    width: 15%;
+  }
   .packages {
     grid-template-columns: 1fr !important;
   }
@@ -425,6 +431,12 @@ footer .company {
 
   .login-form {
     width: 90vw !important;
+  }
+  .regform {
+    height: 100vh;
+  }
+  .regform img {
+    width: 15%;
   }
   .container-btc-benefits {
     flex-direction: column;
@@ -471,6 +483,12 @@ footer .company {
   .packages div {
     width: 100%;
     margin: 10px 0;
+  }
+  .regform {
+    height: 100vh;
+  }
+  .regform img {
+    width: 15%;
   }
 }
 
