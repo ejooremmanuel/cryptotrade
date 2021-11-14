@@ -3,20 +3,24 @@ const User = require("../../models/user");
 module.exports = {
   Dashboard: async (req, res) => {
     const foundUser = await User.findById(req.user._id);
-    const { balance, avatar, verified } = foundUser;
+    const { balance, fullname, verified } = foundUser;
+    const getName = fullname.split(" ")[0];
 
-    res.render("userpage/dashboard", { balance, fullname: avatar, verified });
+    res.render("userpage/dashboard", { balance, fullname: getName, verified });
   },
   Wallet: async (req, res) => {
     const foundUser = await User.findById(req.user._id);
-    const { balance, avatar, verified } = foundUser;
-    res.render("userpage/wallet", { balance, fullname: avatar, verified });
+    const { balance, fullname, verified } = foundUser;
+    const getName = fullname.split(" ")[0];
+
+    res.render("userpage/wallet", { balance, fullname: getName, verified });
   },
   Packages: async (req, res) => {
     const foundUser = await User.findById(req.user._id);
-    const { balance, verified, avatar } = foundUser;
+    const { balance, fullname, verified, avatar } = foundUser;
+    const getName = fullname.split(" ")[0];
 
-    res.render("userpage/packages", { balance, fullname: avatar, verified });
+    res.render("userpage/packages", { balance, fullname: getName, verified });
   },
   getAdminPage: (req, res) => {
     res.render("userpage/admin");
