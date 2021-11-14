@@ -247,8 +247,8 @@ footer .company {
 .regform {
   height: 100vh;
 }
-.regform img {
-  width: 15%;
+.regimage {
+  width: 25%;
 }
 
 /* User Dashboard */

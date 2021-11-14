@@ -17,10 +17,9 @@ module.exports = {
   },
   Packages: async (req, res) => {
     const foundUser = await User.findById(req.user._id);
-    const { balance, fullname, verified } = foundUser;
-    const getName = fullname.split(" ")[0];
+    const { balance, verified, avatar } = foundUser;
 
-    res.render("userpage/packages", { balance, fullname: getName, verified });
+    res.render("userpage/packages", { balance, fullname: avatar, verified });
   },
   getAdminPage: (req, res) => {
     res.render("userpage/admin");
