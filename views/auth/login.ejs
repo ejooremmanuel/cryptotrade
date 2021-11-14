@@ -30,8 +30,8 @@
   <body>
     <!-- Form -->
     <div class="container login-form mt-2">
-      <h5>Hi! Please Login to continue 😃</h5>
-
+      <h6 class="px-3">Hi! Please Login to continue 😃</h6>
+      <img class="w-25" src="/img/twp.png" alt="" srcset="" />
       <%- include("../messages") %>
       <form action="/auth/login" class="w-100" method="post">
         <div class="form-group">
@@ -62,11 +62,8 @@
         <span>Don't have an account?</span>
         <br />
         <a href="/auth/register" class="btn btn-warning"> Create an account</a>
-        <div></div>
         <br />
-        <span>Forgot Password?</span>
-        <br />
-        <a href="/auth/forgot" class="btn btn-primary"> Forgot password</a>
+        <a href="/auth/forgot"> Forgot password?</a>
       </form>
     </div>
 
