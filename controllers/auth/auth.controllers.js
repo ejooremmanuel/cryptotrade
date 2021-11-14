@@ -1,6 +1,7 @@
 const User = require("../../models/user");
 const bcryptjs = require("bcryptjs");
 const welcomeEmail = require("../../utils/welcomeEmail");
+const randomstring = require("randomstring");
 
 const { Strategy } = require("passport-local");
 const passport = require("passport");
@@ -93,7 +94,7 @@ module.exports = {
         }
 
         const hashedPassword = bcryptjs.hashSync(password, 10);
-        const secretToken = hashedPassword;
+        const secretToken = randomstring.generate(10);
         const newUser = new User({
           fullname,
           email,
