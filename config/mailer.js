@@ -2,14 +2,25 @@
 require("dotenv").config();
 const { createTransport } = require("nodemailer");
 
-const transport = createTransport({
-  service: "Gmail",
+// const transport = createTransport({
+//   service: "Gmail",
+//   auth: {
+//     user: process.env.user,
+//     pass: process.env.pass,
+//   },
+//   tls: {
+//     rejectUnauthorized: false,
+//   },
+// });
+
+// create reusable transporter object using the default SMTP transport
+let transport = createTransport({
+  host: "mail.privateemail.com",
+  port: 465,
+  secure: true, // true for 465, false for other ports
   auth: {
     user: process.env.user,
     pass: process.env.pass,
-  },
-  tls: {
-    rejectUnauthorized: false,
   },
 });
 

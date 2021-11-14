@@ -21,7 +21,12 @@ const welcomeEmail = async (req, username, email, secretToken) => {
   <strong>TWP</strong>
     `;
 
-  await sendEmail("support@TWP.com", email, "Verify your account", html);
+  await sendEmail(
+    "support@tradewithpower.net",
+    email,
+    "Verify your account",
+    html
+  );
 };
 
 module.exports = welcomeEmail;
