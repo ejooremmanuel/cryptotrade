@@ -35,4 +35,10 @@ module.exports = {
     const { email, fullname } = foundUser;
     res.render("userpage/withdraw", { email, fullname });
   },
+  getProfileSettingPage: async (req, res) => {
+    const foundUser = await User.findById(req.user._id);
+    const { email, fullname, verified } = foundUser;
+    const getName = fullname.split(" ")[0];
+    res.render("userpage/profile", { email, fullname: getName, verified });
+  },
 };

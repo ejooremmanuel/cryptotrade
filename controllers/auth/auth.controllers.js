@@ -23,7 +23,10 @@ passport.use(
           return done(
             null,
             false,
-            req.flash("error-message", "Password does not match.")
+            req.flash(
+              "error-message",
+              "Password is incorrect. Please try again."
+            )
           );
         }
         if (user && checkPassword) {
@@ -209,5 +212,28 @@ module.exports = {
       }
       return res.render("auth/reset", { email });
     }
+  },
+  postChangePassword: async (req, res) => {
+    const { email, password, confirmpassword } = req.body;
+    if (!email || !password || !confirmpassword) {
+      req.flash("error-message", "All fields are required!");
+      return res.redirect("back");
+    }
+    if (password.length < 6) {
+      req.flash("error-message", "Password must be at least 6 characters.");
+      return res.redirect("back");
+    }
+    if (password !== confirmpassword) {
+      req.flash("error-message", "Password must match!");
+      return res.redirect("back");
+    }
+
+    let foundEmailforReset = await User.findOne({ email });
+
+    let hashedPassword = bcryptjs.hashSync(password, 10);
+    foundEmailforReset.password = hashedPassword;
+    await foundEmailforReset.save();
+    req.flash("success-message", "Password changed successfully.");
+    return res.redirect("back");
   },
 };

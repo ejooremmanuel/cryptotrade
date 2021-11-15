@@ -8,6 +8,7 @@ const {
   getForgotPassword,
   postForgotPassword,
   postreset,
+  postChangePassword,
 } = require("../../controllers/auth/auth.controllers");
 
 const router = require("express").Router();
@@ -21,6 +22,7 @@ router.post("/verify", confirmUser);
 router.get("/forgot", getForgotPassword);
 router.post("/reset", postreset);
 router.post("/forgot", postForgotPassword);
+router.post("/changepassword", postChangePassword);
 router.get("/forgot/:token", postForgotPassword);
 router.get("/verify", (req, res) => {
   res.render("auth/verifytoken");
