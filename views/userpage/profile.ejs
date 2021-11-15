@@ -29,7 +29,10 @@
       <div class="user-sidebar" id="sidebar"><%- include("./sidebar") %></div>
       <div class="dashboard__container">
         <%- include("./navbar") %>
-        <div style="z-index: 1" class="container login-form mt-2">
+        <div
+          style="z-index: 1; margin-top: 30px"
+          class="container login-form mt-5"
+        >
           <%- include("../messages") %>
           <form action="/auth/changepassword" class="w-100" method="post">
             <div class="form-group">
